@@ -2,6 +2,8 @@
 
 In this project, I attempted to develop a program to allow a computer to generate classical music using machine learning. The machine learning model that was used was a recurrent neural network (RNN) that was obtained from the Tensorflow Python package. This model was "trained" for around 24 hours (using a CPU) on over 2 hours of Mozart sonatas. It was hoped that the computer would eventually be able to create its own music that would resemble a Mozart sonata, however, this was not accomplished, as shown by the three trash music files in the "mp3-files" folder that you can listen to if you want.
 
+NOTE: if the MP3 files do not download, the MIDI files in "midi-files" can also be played.
+
 
 ## FileConverter.java
 
