@@ -1,6 +1,6 @@
 # Journal
 
-I decided to split this project into two separate components, first choosing to focus on generating the text files that would be run through the machine learning program, and then creating the machine learning program itself. I chose to develop the neural network second, so that I would be able to test it out immediately with the data that I had converted.
+I decided to split this project into two separate components, first choosing to focus on generating the text files that would be run through the machine learning program, and then creating the machine learning program itself. I chose to develop the neural network second so that I would be able to test it out immediately with the data that I had converted.
 
 
 ### Week 1: File Converter
@@ -83,8 +83,12 @@ In total, it took me only about 2 classes to complete this component since I pre
 
 The file generator was then run to train the model for 3 "epochs," which took around 24 hours of CPU time when being run on the 2.7 GHz Intel Core i5 processor of a Macbook Pro. This spread the training over nearly 3 days, since IDLE would not run when my laptop was sleeping, which would be for a large portion of the day. To make up for this lost time, I kept my laptop on over night to allow for the model to continue training. During the training process, it was unfortunate because the estimated time left always seemed to be incredibly off--for example, if it said there was 1 hour remaining, this would be equalivalent to 5 more hours of training. In addition, IDLE drained my laptop's battery very quickly, and used up most of my CPU (always more than 99.5%).
 
+![CPU-training](journal-images/CPU-training.png)
+
 As can be seen from the training log, the loss began to plateau during the third epoch (remaining at a value of around 0.33). If I trained the model for more time, I would have liked to see if this training would have had any effect on the quality of the files produced. I would also have further experimented with the file_generator program to figure out what sequence size, batch size, etc. would optimize the effectiveness of the model. 
 
 For some reason, I was not able to write the text the file generator printed to a file, so I ended up just printing the characters and manually saving it to a text file. I then placed these files into a folder called "txt-files," and used the MidiFileCreator class to convert the files in this folder into MIDI files. I only had the computer generate 3 text files--there would be no point in creating more since they would be equally as bad. The computer actually did a good job in making the format of the files correct for the most part. There were a few errors, such as random characters appearing in random places and the computer was never able to start a file off correctly with a note, which is why I wrote the validString() method within the FileConverter class to make sure that only valid notes are added to the MIDI file. Without this method, the text files would not be able to be converted into MIDI files since the midiFile() method would throw many errors.
 
 Finally, I converted the new MIDI files into MP3 files. This was done so that the files could be listened to from devices without MIDI readers.
+
+![MIDI-running](journal-images/MIDI-running.png)
