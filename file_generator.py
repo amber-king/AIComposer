@@ -107,12 +107,12 @@ model.compile(optimizer = tf.train.AdamOptimizer(), loss = loss)
 # directory where the checkpoints will be saved
 checkpoint_dir = 'training_checkpoints'
 # name of the checkpoint files
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
+checkpoint_prefix = os.path.join(checkpoint_dir, 'ckpt_{epoch}')
 
 # ensure that checkpoints are saved during training
-checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_prefix,
+checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_prefix,
                                                        save_weights_only=True)
-EPOCHS = 3   # number of epochs to train the model
+EPOCHS = 15   # number of epochs to train the model
 
 # train the model
 history = model.fit(dataset.repeat(), epochs=EPOCHS,
@@ -164,5 +164,7 @@ def generate_text(model, start_string):
 
   return (start_string + ''.join(text_generated))
 
+# print generated text
 generated_text = generate_text(model, start_string=u"'")
 print(generated_text)
+
