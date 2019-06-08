@@ -12,12 +12,11 @@ import time
 # READ AND PROCESS THE TEXT IN THE TEXT FILES
 
 # combine text files in txt-training into one text file called txt-file.txt
-'''
 with open('txt_file.txt', 'w') as outfile:
     for file in  glob.glob(os.path.join('txt-training', '*.txt')):
         with open(file) as infile:
             outfile.write(infile.read())
-'''
+
 path_to_file = 'txt_file.txt'
 
 # read and decode text file
@@ -115,11 +114,11 @@ checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_prefi
                                                        save_weights_only=True)
 EPOCHS = 3   # number of epochs to train the model
 
-'''
+# train the model
 history = model.fit(dataset.repeat(), epochs=EPOCHS,
                     steps_per_epoch=steps_per_epoch,
                     callbacks=[checkpoint_callback])
-'''
+
 
 # GENERATE TEXT
 
