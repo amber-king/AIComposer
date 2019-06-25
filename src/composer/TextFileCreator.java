@@ -26,8 +26,15 @@ public class TextFileCreator
 		// create a text file for each MIDI file in "midi-training" using the textFile() FileConverter method
 		for (File midiFile : midiFiles)
 		{
-			File textFile = fileConverter.textFile(midiFile, textTraining);
-			textFile.createNewFile();
+			try
+			{
+				File textFile = fileConverter.textFile(midiFile, textTraining);
+				textFile.createNewFile();
+			}
+			catch (Exception e)
+			{
+				System.out.println("File not compatible.");
+			}
 		}
 	}
 	
